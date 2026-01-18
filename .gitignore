@@ -76,6 +76,9 @@ fastlane/test_output
 # Metro
 .metro-health-check*
 
+# Expo
+.expo/
+
 # Audio files (large, should be in LFS or separate)
 # Uncomment if using Git LFS for audio
 # src/assets/audio/*.mp3
