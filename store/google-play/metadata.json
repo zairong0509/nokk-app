@@ -1,0 +1,79 @@
+{
+  "appName": "NOKK - Safety Voice",
+  "shortDescription": "Instant voice protection for home safety. One tap plays a strong male voice.",
+  "fullDescription": "See description.txt",
+  "category": "LIFESTYLE",
+  "contentRating": "Everyone",
+  "targetAudience": "18+",
+  "email": "support@nokk.app",
+  "website": "https://nokk.app",
+  "privacyPolicy": "https://nokk.app/privacy",
+  "defaultLanguage": "en-US",
+  "packageName": "com.nokk.app",
+  "version": "1.0.0",
+  "versionCode": 1,
+  "minimumSdk": 24,
+  "targetSdk": 34,
+  "localizations": {
+    "en-US": {
+      "title": "NOKK - Safety Voice",
+      "shortDescription": "Instant voice protection for home safety",
+      "fullDescription": "description.txt"
+    },
+    "ko": {
+      "title": "NOKK - 안전 음성",
+      "shortDescription": "집 안전을 위한 즉각적인 음성 보호",
+      "fullDescription": "description_ko.txt"
+    },
+    "ja": {
+      "title": "NOKK - セーフティボイス",
+      "shortDescription": "ホームセーフティのための即座の音声保護",
+      "fullDescription": "description_ja.txt"
+    },
+    "es": {
+      "title": "NOKK - Voz de Seguridad", 
+      "shortDescription": "Protección de voz instantánea para seguridad del hogar",
+      "fullDescription": "description_es.txt"
+    }
+  },
+  "inAppProducts": [
+    {
+      "productId": "nokk_premium_monthly",
+      "type": "subs",
+      "title": "Premium Monthly",
+      "description": "Unlock all phrases, voice tones, custom buttons, and remove ads",
+      "price": "2.99",
+      "currency": "USD",
+      "billingPeriod": "P1M"
+    },
+    {
+      "productId": "nokk_premium_yearly",
+      "type": "subs",
+      "title": "Premium Yearly",
+      "description": "Unlock all features for a year - Save 45%",
+      "price": "19.99",
+      "currency": "USD",
+      "billingPeriod": "P1Y"
+    },
+    {
+      "productId": "nokk_premium_lifetime",
+      "type": "inapp",
+      "title": "Premium Lifetime",
+      "description": "One-time purchase - Unlock all features forever",
+      "price": "49.99",
+      "currency": "USD"
+    }
+  ],
+  "permissions": [
+    "android.permission.INTERNET",
+    "android.permission.ACCESS_NETWORK_STATE",
+    "com.android.vending.BILLING"
+  ],
+  "dataCollected": false,
+  "dataShared": false,
+  "securityPractices": {
+    "dataEncrypted": true,
+    "dataDeleted": true,
+    "independentReview": false
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "app": {
+    "name": "NOKK",
+    "tagline": "Tu Voz de Seguridad"
+  },
+  "home": {
+    "title": "Inicio",
+    "quickActions": "Acciones Rápidas",
+    "categories": "Categorías",
+    "tapToPlay": "Toca para reproducir",
+    "premiumRequired": "Requiere Premium"
+  },
+  "quickActions": {
+    "whoIsIt": "¿Quién es?",
+    "leaveAtDoor": "Déjalo en la puerta.",
+    "callingPolice": "Voy a llamar a la policía."
+  },
+  "categories": {
+    "delivery": "Entrega",
+    "unknown": "Visitante Desconocido",
+    "threat": "Amenaza",
+    "night": "Situación Nocturna",
+    "general": "General"
+  },
+  "phrases": {
+    "delivery_1": "Déjalo en la puerta.",
+    "delivery_2": "Ponlo ahí.",
+    "delivery_3": "Gracias, lo tengo.",
+    "delivery_4": "Déjalo en la entrada.",
+    "delivery_5": "Lo recogeré en un momento.",
+    "unknown_1": "¿Quién es?",
+    "unknown_2": "No espero a nadie.",
+    "unknown_3": "¿Qué quiere?",
+    "unknown_4": "No estamos interesados.",
+    "unknown_5": "Vuelva más tarde.",
+    "unknown_6": "Estoy ocupado ahora.",
+    "threat_1": "Voy a llamar a la policía.",
+    "threat_2": "¡Aléjese de mi puerta!",
+    "threat_3": "Tengo una cámara grabándote.",
+    "threat_4": "Váyase ahora o llamo a seguridad.",
+    "threat_5": "Estoy armado y me defenderé.",
+    "threat_6": "Mis vecinos están mirando.",
+    "night_1": "Es tarde. ¿Qué quiere?",
+    "night_2": "Estamos durmiendo. Váyase.",
+    "night_3": "Vuelva mañana.",
+    "night_4": "¿Sabe qué hora es?",
+    "general_1": "Espere, ya voy.",
+    "general_2": "Un momento.",
+    "general_3": "¿Sí?",
+    "general_4": "¿Quién está ahí?"
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma",
+    "voiceTone": "Tono de Voz",
+    "account": "Cuenta",
+    "subscription": "Suscripción",
+    "restorePurchase": "Restaurar Compra",
+    "darkMode": "Modo Oscuro",
+    "notifications": "Notificaciones",
+    "about": "Acerca de",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "version": "Versión",
+    "logout": "Cerrar Sesión",
+    "login": "Iniciar Sesión"
+  },
+  "voiceTone": {
+    "normal": "Normal",
+    "firm": "Firme",
+    "angry": "Enojado",
+    "description": "Cambiar cómo suena la voz"
+  },
+  "premium": {
+    "title": "Ser Premium",
+    "subtitle": "Desbloquea todas las funciones",
+    "benefit1": "Todas las frases desbloqueadas",
+    "benefit2": "Opciones de tono de voz",
+    "benefit3": "Acciones rápidas personalizadas (5 espacios)",
+    "benefit4": "Sin anuncios",
+    "subscribe": "Suscribirse Ahora",
+    "restore": "Restaurar Compra",
+    "monthly": "Mensual",
+    "yearly": "Anual",
+    "lifetime": "De por vida",
+    "perMonth": "/mes",
+    "perYear": "/año",
+    "oneTime": "único pago",
+    "currentPlan": "Plan Actual",
+    "freePlan": "Plan Gratis",
+    "premiumPlan": "Premium"
+  },
+  "upgrade": {
+    "title": "Función Premium",
+    "message": "Actualiza a Premium para desbloquear esta frase y todas las demás funciones premium.",
+    "button": "Actualizar Ahora",
+    "cancel": "Quizás Después"
+  },
+  "search": {
+    "placeholder": "Buscar frases...",
+    "noResults": "No se encontraron frases",
+    "results": "{{count}} resultados"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "done": "Hecho",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "skip": "Omitir",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "retry": "Reintentar"
+  },
+  "errors": {
+    "audioPlayback": "Error al reproducir audio",
+    "network": "Error de red. Por favor intente de nuevo.",
+    "purchase": "Compra fallida. Por favor intente de nuevo.",
+    "generic": "Algo salió mal"
+  },
+  "onboarding": {
+    "welcome": "Bienvenido a NOKK",
+    "slide1Title": "Mantente Seguro",
+    "slide1Desc": "Protección de voz instantánea cuando alguien está en tu puerta",
+    "slide2Title": "Un Toque",
+    "slide2Desc": "Sin demoras. Toca y la voz se reproduce inmediatamente.",
+    "slide3Title": "Suena Confiado",
+    "slide3Desc": "Voces masculinas profesionales que suenan reales y fuertes",
+    "getStarted": "Comenzar"
+  }
+}

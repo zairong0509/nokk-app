@@ -1,0 +1,135 @@
+{
+  "app": {
+    "name": "NOKK",
+    "tagline": "あなたの安全ボイス"
+  },
+  "home": {
+    "title": "ホーム",
+    "quickActions": "クイックアクション",
+    "categories": "カテゴリー",
+    "tapToPlay": "タップして再生",
+    "premiumRequired": "プレミアム必要"
+  },
+  "quickActions": {
+    "whoIsIt": "どちら様ですか？",
+    "leaveAtDoor": "ドアの前に置いてください。",
+    "callingPolice": "警察を呼びます。"
+  },
+  "categories": {
+    "delivery": "配達",
+    "unknown": "知らない訪問者",
+    "threat": "脅威",
+    "night": "夜間",
+    "general": "一般"
+  },
+  "phrases": {
+    "delivery_1": "ドアの前に置いてください。",
+    "delivery_2": "そこに置いてください。",
+    "delivery_3": "ありがとう、受け取りました。",
+    "delivery_4": "門の前に置いてください。",
+    "delivery_5": "すぐ取りに行きます。",
+    "unknown_1": "どちら様ですか？",
+    "unknown_2": "誰も待っていません。",
+    "unknown_3": "何のご用ですか？",
+    "unknown_4": "興味ありません。",
+    "unknown_5": "また後で来てください。",
+    "unknown_6": "今忙しいです。",
+    "threat_1": "警察を呼びます。",
+    "threat_2": "ドアから離れてください！",
+    "threat_3": "カメラで録画しています。",
+    "threat_4": "今すぐ立ち去らないと警備員を呼びます。",
+    "threat_5": "武装しています。自己防衛します。",
+    "threat_6": "隣人が見ています。",
+    "night_1": "遅いですね。何のご用ですか？",
+    "night_2": "寝ています。帰ってください。",
+    "night_3": "明日また来てください。",
+    "night_4": "今何時か分かっていますか？",
+    "general_1": "ちょっと待って、今行きます。",
+    "general_2": "少々お待ちください。",
+    "general_3": "はい？",
+    "general_4": "そこにいるのは誰？"
+  },
+  "settings": {
+    "title": "設定",
+    "language": "言語",
+    "voiceTone": "声のトーン",
+    "account": "アカウント",
+    "subscription": "サブスクリプション",
+    "restorePurchase": "購入を復元",
+    "darkMode": "ダークモード",
+    "notifications": "通知",
+    "about": "について",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "version": "バージョン",
+    "logout": "ログアウト",
+    "login": "ログイン"
+  },
+  "voiceTone": {
+    "normal": "普通",
+    "firm": "断固とした",
+    "angry": "怒り",
+    "description": "声の感じを変更"
+  },
+  "premium": {
+    "title": "プレミアムに",
+    "subtitle": "全機能をアンロック",
+    "benefit1": "全フレーズアンロック",
+    "benefit2": "声のトーンオプション",
+    "benefit3": "カスタムクイックアクション（5スロット）",
+    "benefit4": "広告なし",
+    "subscribe": "今すぐ購読",
+    "restore": "購入を復元",
+    "monthly": "月額",
+    "yearly": "年額",
+    "lifetime": "永久",
+    "perMonth": "/月",
+    "perYear": "/年",
+    "oneTime": "一回払い",
+    "currentPlan": "現在のプラン",
+    "freePlan": "無料プラン",
+    "premiumPlan": "プレミアム"
+  },
+  "upgrade": {
+    "title": "プレミアム機能",
+    "message": "このフレーズと全てのプレミアム機能をアンロックするにはプレミアムにアップグレードしてください。",
+    "button": "今すぐアップグレード",
+    "cancel": "後で"
+  },
+  "search": {
+    "placeholder": "フレーズを検索...",
+    "noResults": "フレーズが見つかりません",
+    "results": "{{count}}件の結果"
+  },
+  "common": {
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "save": "保存",
+    "done": "完了",
+    "edit": "編集",
+    "delete": "削除",
+    "back": "戻る",
+    "next": "次へ",
+    "skip": "スキップ",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "retry": "再試行"
+  },
+  "errors": {
+    "audioPlayback": "オーディオ再生失敗",
+    "network": "ネットワークエラー。再試行してください。",
+    "purchase": "購入失敗。再試行してください。",
+    "generic": "問題が発生しました"
+  },
+  "onboarding": {
+    "welcome": "NOKKへようこそ",
+    "slide1Title": "安全に",
+    "slide1Desc": "ドアに誰かいる時の即座の音声保護",
+    "slide2Title": "ワンタップ",
+    "slide2Desc": "遅延なし。タップすると即座に音声が再生されます。",
+    "slide3Title": "自信を持って",
+    "slide3Desc": "本物のように聞こえるプロの男性音声",
+    "getStarted": "始める"
+  }
+}

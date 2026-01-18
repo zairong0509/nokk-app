@@ -1,0 +1,13 @@
+{
+  "name": "nokk-audio-generator",
+  "version": "1.0.0",
+  "description": "Audio generator for NOKK app using Edge TTS",
+  "main": "generate_audio.js",
+  "scripts": {
+    "generate": "node generate_audio.js"
+  },
+  "dependencies": {
+    "uuid": "^13.0.0",
+    "ws": "^8.19.0"
+  }
+}

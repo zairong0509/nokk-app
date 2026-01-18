@@ -1,0 +1,81 @@
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Xcode
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+ios/.xcode.env.local
+
+# Android/IntelliJ
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof
+android/app/build/
+android/build/
+
+# Bundle artifact
+*.jsbundle
+
+# CocoaPods
+ios/Pods/
+
+# Ruby / CocoaPods
+/ios/Pods/
+/vendor/bundle/
+.bundle/
+
+# Env
+.env
+.env.*
+
+# Testing
+coverage/
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+
+# Release signing
+*.keystore
+!debug.keystore
+*.jks
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Metro
+.metro-health-check*
+
+# Audio files (large, should be in LFS or separate)
+# Uncomment if using Git LFS for audio
+# src/assets/audio/*.mp3

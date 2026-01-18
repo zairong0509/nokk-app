@@ -1,0 +1,77 @@
+apply plugin: "com.android.application"
+apply plugin: "org.jetbrains.kotlin.android"
+apply plugin: "com.facebook.react"
+
+def enableProguardInReleaseBuilds = true
+
+android {
+    namespace "com.nokk.app"
+    compileSdkVersion 34
+    
+    defaultConfig {
+        applicationId "com.nokk.app"
+        minSdkVersion 24
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0.0"
+        
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+    }
+    
+    signingConfigs {
+        release {
+            if (project.hasProperty('NOKK_RELEASE_STORE_FILE')) {
+                storeFile file(NOKK_RELEASE_STORE_FILE)
+                storePassword NOKK_RELEASE_STORE_PASSWORD
+                keyAlias NOKK_RELEASE_KEY_ALIAS
+                keyPassword NOKK_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
+    
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+        release {
+            minifyEnabled enableProguardInReleaseBuilds
+            shrinkResources enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
+        }
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+    implementation "com.facebook.react:react-android"
+    
+    // Google Play Billing
+    implementation "com.android.billingclient:billing:6.1.0"
+    
+    // Google Sign-In
+    implementation "com.google.android.gms:play-services-auth:20.7.0"
+    
+    // AdMob
+    implementation "com.google.android.gms:play-services-ads:22.6.0"
+    
+    if (hermesEnabled.toBoolean()) {
+        implementation("com.facebook.react:hermes-android")
+    } else {
+        implementation jscFlavor
+    }
+}
+
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
+applyNativeModulesAppBuildGradle(project)

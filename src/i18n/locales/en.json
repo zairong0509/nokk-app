@@ -1,0 +1,135 @@
+{
+  "app": {
+    "name": "NOKK",
+    "tagline": "Your Safety Voice"
+  },
+  "home": {
+    "title": "Home",
+    "quickActions": "Quick Actions",
+    "categories": "Categories",
+    "tapToPlay": "Tap to play",
+    "premiumRequired": "Premium Required"
+  },
+  "quickActions": {
+    "whoIsIt": "Who is it?",
+    "leaveAtDoor": "Leave it at the door.",
+    "callingPolice": "I'm calling the police."
+  },
+  "categories": {
+    "delivery": "Delivery",
+    "unknown": "Unknown Visitor",
+    "threat": "Threat",
+    "night": "Night Situation",
+    "general": "General"
+  },
+  "phrases": {
+    "delivery_1": "Leave it at the door.",
+    "delivery_2": "Just put it down there.",
+    "delivery_3": "Thanks, I got it.",
+    "delivery_4": "Leave it by the gate.",
+    "delivery_5": "I'll pick it up in a minute.",
+    "unknown_1": "Who is it?",
+    "unknown_2": "I'm not expecting anyone.",
+    "unknown_3": "What do you want?",
+    "unknown_4": "We're not interested.",
+    "unknown_5": "Come back later.",
+    "unknown_6": "I'm busy right now.",
+    "threat_1": "I'm calling the police.",
+    "threat_2": "Get away from my door!",
+    "threat_3": "I've got a camera recording you.",
+    "threat_4": "Leave now or I call security.",
+    "threat_5": "I'm armed and I will defend myself.",
+    "threat_6": "My neighbors are watching.",
+    "night_1": "It's late. What do you want?",
+    "night_2": "We're sleeping. Go away.",
+    "night_3": "Come back tomorrow.",
+    "night_4": "Do you know what time it is?",
+    "general_1": "Hold on, I'm coming.",
+    "general_2": "Give me a second.",
+    "general_3": "Yes?",
+    "general_4": "Who's there?"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "voiceTone": "Voice Tone",
+    "account": "Account",
+    "subscription": "Subscription",
+    "restorePurchase": "Restore Purchase",
+    "darkMode": "Dark Mode",
+    "notifications": "Notifications",
+    "about": "About",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "version": "Version",
+    "logout": "Log Out",
+    "login": "Log In"
+  },
+  "voiceTone": {
+    "normal": "Normal",
+    "firm": "Firm",
+    "angry": "Angry",
+    "description": "Change how the voice sounds"
+  },
+  "premium": {
+    "title": "Go Premium",
+    "subtitle": "Unlock all features",
+    "benefit1": "All phrases unlocked",
+    "benefit2": "Voice tone options",
+    "benefit3": "Custom quick actions (5 slots)",
+    "benefit4": "No advertisements",
+    "subscribe": "Subscribe Now",
+    "restore": "Restore Purchase",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "lifetime": "Lifetime",
+    "perMonth": "/month",
+    "perYear": "/year",
+    "oneTime": "one-time",
+    "currentPlan": "Current Plan",
+    "freePlan": "Free Plan",
+    "premiumPlan": "Premium"
+  },
+  "upgrade": {
+    "title": "Premium Feature",
+    "message": "Upgrade to Premium to unlock this phrase and all other premium features.",
+    "button": "Upgrade Now",
+    "cancel": "Maybe Later"
+  },
+  "search": {
+    "placeholder": "Search phrases...",
+    "noResults": "No phrases found",
+    "results": "{{count}} results"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "done": "Done",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "skip": "Skip",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "retry": "Retry"
+  },
+  "errors": {
+    "audioPlayback": "Failed to play audio",
+    "network": "Network error. Please try again.",
+    "purchase": "Purchase failed. Please try again.",
+    "generic": "Something went wrong"
+  },
+  "onboarding": {
+    "welcome": "Welcome to NOKK",
+    "slide1Title": "Stay Safe",
+    "slide1Desc": "Instant voice protection when someone's at your door",
+    "slide2Title": "One Tap",
+    "slide2Desc": "No delays. Tap and the voice plays immediately.",
+    "slide3Title": "Sound Confident",
+    "slide3Desc": "Professional male voices that sound real and strong",
+    "getStarted": "Get Started"
+  }
+}

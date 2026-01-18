@@ -1,0 +1,83 @@
+{
+  "appName": "NOKK - Safety Voice",
+  "subtitle": "Personal Protection at Home",
+  "primaryCategory": "Lifestyle",
+  "secondaryCategory": "Utilities",
+  "ageRating": "4+",
+  "copyright": "© 2024 NOKK App",
+  "supportUrl": "https://nokk.app/support",
+  "marketingUrl": "https://nokk.app",
+  "privacyPolicyUrl": "https://nokk.app/privacy",
+  "version": "1.0.0",
+  "buildNumber": "1",
+  "keywords": [
+    "safety",
+    "security", 
+    "home security",
+    "personal safety",
+    "voice",
+    "protection",
+    "women safety",
+    "home alone",
+    "door security",
+    "safety app"
+  ],
+  "localizations": {
+    "en-US": {
+      "name": "NOKK - Safety Voice",
+      "subtitle": "Personal Protection at Home",
+      "keywords": "safety,security,home security,personal safety,voice,protection,women safety",
+      "promotionalText": "Stay safe with instant voice protection!",
+      "whatsNew": "Initial release of NOKK - Your personal safety voice companion."
+    },
+    "ko": {
+      "name": "NOKK - 안전 음성",
+      "subtitle": "집에서의 개인 보호",
+      "keywords": "안전,보안,홈 시큐리티,개인 안전,음성,보호,여성 안전",
+      "promotionalText": "즉각적인 음성 보호로 안전하게!",
+      "whatsNew": "NOKK 첫 출시 - 당신의 개인 안전 음성 도우미."
+    },
+    "ja": {
+      "name": "NOKK - セーフティボイス",
+      "subtitle": "自宅での個人保護",
+      "keywords": "安全,セキュリティ,ホームセキュリティ,個人安全,音声,保護",
+      "promotionalText": "即座の音声保護で安全に！",
+      "whatsNew": "NOKK初リリース - あなたの個人安全音声コンパニオン。"
+    },
+    "es": {
+      "name": "NOKK - Voz de Seguridad",
+      "subtitle": "Protección Personal en Casa",
+      "keywords": "seguridad,protección,hogar,voz,seguridad personal,mujeres",
+      "promotionalText": "¡Mantente seguro con protección de voz instantánea!",
+      "whatsNew": "Lanzamiento inicial de NOKK - Tu compañero de voz de seguridad personal."
+    }
+  },
+  "inAppPurchases": [
+    {
+      "productId": "nokk_premium_monthly",
+      "type": "auto-renewable-subscription",
+      "referenceName": "Premium Monthly",
+      "price": 2.99,
+      "duration": "1 month"
+    },
+    {
+      "productId": "nokk_premium_yearly",
+      "type": "auto-renewable-subscription",
+      "referenceName": "Premium Yearly",
+      "price": 19.99,
+      "duration": "1 year"
+    },
+    {
+      "productId": "nokk_premium_lifetime",
+      "type": "non-consumable",
+      "referenceName": "Premium Lifetime",
+      "price": 49.99
+    }
+  ],
+  "appPrivacy": {
+    "dataTypes": [],
+    "dataUsed": false,
+    "dataLinked": false,
+    "trackingEnabled": false
+  }
+}
