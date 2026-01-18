@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>개인정보 처리방침 - NOKK</title>
+    <title>Privacy Policy | 개인정보 처리방침 - NOKK</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
@@ -45,70 +45,183 @@
             font-size: 0.9em;
             margin-bottom: 20px;
         }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .lang-switch button {
+            background: none;
+            border: 2px solid #4CAF50;
+            color: #4CAF50;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .lang-switch button:hover {
+            background: #4CAF50;
+            color: white;
+        }
+        .lang-switch button.active {
+            background: #4CAF50;
+            color: white;
+        }
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="lang-switch" style="text-align: right; margin-bottom: 10px;">
-            <a href="privacy.html" style="color: #4CAF50; text-decoration: none;"><strong>🇰🇷 한국어</strong></a> | 
-            <a href="privacy_en.html" style="color: #4CAF50; text-decoration: none;">🇺🇸 English</a>
+        <div class="lang-switch">
+            <button onclick="switchLang('ko')" id="btn-ko" class="active">🇰🇷 한국어</button>
+            <button onclick="switchLang('en')" id="btn-en">🇺🇸 English</button>
         </div>
         
-        <a href="index.html" class="back-link">← 홈으로</a>
+        <!-- 한국어 콘텐츠 -->
+        <div id="content-ko" class="lang-content active">
+            <a href="index.html" class="back-link">← 홈으로</a>
+            
+            <h1>개인정보 처리방침</h1>
+            <p class="last-updated">최종 수정일: 2026년 1월 19일</p>
+
+            <h2>1. 앱 소개</h2>
+            <p>NOKK는 집에 혼자 있는 여성이나 아이들이 위험한 상황에서 남자 목소리를 재생하여 안전을 지키는 홈 안전 음성 앱입니다.</p>
+
+            <h2>2. 개인정보의 수집 및 이용</h2>
+            <p><strong>NOKK는 어떠한 개인정보도 수집하지 않습니다.</strong></p>
+            <p>본 앱은 사용자의 개인정보를 수집, 저장, 전송하지 않으며, 다음과 같은 특징을 가지고 있습니다:</p>
+            <ul>
+                <li>회원가입 불필요</li>
+                <li>로그인 불필요</li>
+                <li>개인정보 입력 불필요</li>
+                <li>외부 서버와의 통신 없음 (완전 오프라인)</li>
+            </ul>
+
+            <h2>3. 로컬 저장 데이터</h2>
+            <p>다음 정보는 사용자의 기기에만 저장되며, 외부로 전송되지 않습니다:</p>
+            <ul>
+                <li>언어 설정 (한국어, 영어, 일본어, 스페인어)</li>
+                <li>테마 설정 (라이트 모드, 다크 모드)</li>
+                <li>음성 톤 선택 (일반, 단호, 화난)</li>
+                <li>빠른 실행 버튼 설정</li>
+                <li>프리미엄 구독 상태 (결제 정보는 Apple/Google에서 관리)</li>
+            </ul>
+
+            <h2>4. 권한 요청</h2>
+            <p>본 앱은 다음 권한을 사용할 수 있습니다:</p>
+            <ul>
+                <li><strong>오디오 재생</strong>: 남자 음성을 재생하기 위해 필요합니다.</li>
+                <li><strong>인터넷 (선택)</strong>: 프리미엄 구독 결제 시에만 사용됩니다.</li>
+            </ul>
+            <p>이러한 권한은 앱의 핵심 기능을 제공하기 위해서만 사용되며, 어떠한 개인정보도 수집하지 않습니다.</p>
+
+            <h2>5. 제3자 서비스</h2>
+            <p>본 앱은 최소한의 제3자 서비스만 사용합니다:</p>
+            <ul>
+                <li><strong>Apple App Store / Google Play Store</strong>: 프리미엄 구독 결제 처리 (선택 사항)</li>
+            </ul>
+            <p>결제 정보는 Apple 또는 Google에서 관리하며, NOKK는 결제 정보에 접근하지 않습니다.</p>
+
+            <h2>6. 데이터 보안</h2>
+            <p>모든 설정 데이터는 사용자의 기기 내에서만 저장되며, 외부로 전송되지 않습니다. 사용자가 앱을 삭제하면 모든 데이터가 함께 삭제됩니다.</p>
+
+            <h2>7. 어린이 개인정보 보호</h2>
+            <p>본 앱은 어떠한 연령대의 사용자로부터도 개인정보를 수집하지 않으므로, 어린이의 개인정보 보호에 대한 별도의 조치가 필요하지 않습니다. 다만, 어린이가 혼자 집에 있을 때 본 앱을 사용할 수 있도록 설계되었습니다.</p>
+
+            <h2>8. 개인정보 처리방침 변경</h2>
+            <p>본 개인정보 처리방침은 법률이나 서비스의 변경사항을 반영하기 위해 수정될 수 있습니다. 변경사항이 있을 경우, 본 페이지를 통해 공지됩니다.</p>
+
+            <h2>9. 문의</h2>
+            <p>개인정보 처리방침에 관한 문의사항이 있으시면 아래 연락처로 문의해 주시기 바랍니다:</p>
+            <p>이메일: <a href="mailto:support@nokk.app">support@nokk.app</a></p>
+        </div>
         
-        <h1>개인정보 처리방침</h1>
-        <p class="last-updated">최종 수정일: 2026년 1월 19일</p>
+        <!-- 영어 콘텐츠 -->
+        <div id="content-en" class="lang-content">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: January 19, 2026</p>
 
-        <h2>1. 앱 소개</h2>
-        <p>NOKK는 집에 혼자 있는 여성이나 아이들이 위험한 상황에서 남자 목소리를 재생하여 안전을 지키는 홈 안전 음성 앱입니다.</p>
+            <h2>1. About the App</h2>
+            <p>NOKK is a home safety voice app that protects women and children who are alone at home by playing adult male voices in dangerous situations.</p>
 
-        <h2>2. 개인정보의 수집 및 이용</h2>
-        <p><strong>NOKK는 어떠한 개인정보도 수집하지 않습니다.</strong></p>
-        <p>본 앱은 사용자의 개인정보를 수집, 저장, 전송하지 않으며, 다음과 같은 특징을 가지고 있습니다:</p>
-        <ul>
-            <li>회원가입 불필요</li>
-            <li>로그인 불필요</li>
-            <li>개인정보 입력 불필요</li>
-            <li>외부 서버와의 통신 없음 (완전 오프라인)</li>
-        </ul>
+            <h2>2. Data Collection and Use</h2>
+            <p><strong>NOKK does NOT collect any personal information.</strong></p>
+            <p>This app does not collect, store, or transmit any user personal information, and has the following characteristics:</p>
+            <ul>
+                <li>No registration required</li>
+                <li>No login required</li>
+                <li>No personal information input required</li>
+                <li>No communication with external servers (completely offline)</li>
+            </ul>
 
-        <h2>3. 로컬 저장 데이터</h2>
-        <p>다음 정보는 사용자의 기기에만 저장되며, 외부로 전송되지 않습니다:</p>
-        <ul>
-            <li>언어 설정 (한국어, 영어, 일본어, 스페인어)</li>
-            <li>테마 설정 (라이트 모드, 다크 모드)</li>
-            <li>음성 톤 선택 (일반, 단호, 화난)</li>
-            <li>빠른 실행 버튼 설정</li>
-            <li>프리미엄 구독 상태 (결제 정보는 Apple/Google에서 관리)</li>
-        </ul>
+            <h2>3. Local Storage Data</h2>
+            <p>The following information is stored only on your device and is never transmitted externally:</p>
+            <ul>
+                <li>Language settings (Korean, English, Japanese, Spanish)</li>
+                <li>Theme settings (Light mode, Dark mode)</li>
+                <li>Voice tone selection (Normal, Firm, Angry)</li>
+                <li>Quick action button settings</li>
+                <li>Premium subscription status (payment info managed by Apple/Google)</li>
+            </ul>
 
-        <h2>4. 권한 요청</h2>
-        <p>본 앱은 다음 권한을 사용할 수 있습니다:</p>
-        <ul>
-            <li><strong>오디오 재생</strong>: 남자 음성을 재생하기 위해 필요합니다.</li>
-            <li><strong>인터넷 (선택)</strong>: 프리미엄 구독 결제 시에만 사용됩니다.</li>
-        </ul>
-        <p>이러한 권한은 앱의 핵심 기능을 제공하기 위해서만 사용되며, 어떠한 개인정보도 수집하지 않습니다.</p>
+            <h2>4. Permissions</h2>
+            <p>This app may use the following permissions:</p>
+            <ul>
+                <li><strong>Audio playback</strong>: Required to play male voices.</li>
+                <li><strong>Internet (optional)</strong>: Only used for premium subscription payments.</li>
+            </ul>
+            <p>These permissions are used solely to provide the app's core functionality and do not collect any personal information.</p>
 
-        <h2>5. 제3자 서비스</h2>
-        <p>본 앱은 최소한의 제3자 서비스만 사용합니다:</p>
-        <ul>
-            <li><strong>Apple App Store / Google Play Store</strong>: 프리미엄 구독 결제 처리 (선택 사항)</li>
-        </ul>
-        <p>결제 정보는 Apple 또는 Google에서 관리하며, NOKK는 결제 정보에 접근하지 않습니다.</p>
+            <h2>5. Third-Party Services</h2>
+            <p>This app uses minimal third-party services:</p>
+            <ul>
+                <li><strong>Apple App Store / Google Play Store</strong>: Premium subscription payment processing (optional)</li>
+            </ul>
+            <p>Payment information is managed by Apple or Google, and NOKK does not have access to payment information.</p>
 
-        <h2>6. 데이터 보안</h2>
-        <p>모든 설정 데이터는 사용자의 기기 내에서만 저장되며, 외부로 전송되지 않습니다. 사용자가 앱을 삭제하면 모든 데이터가 함께 삭제됩니다.</p>
+            <h2>6. Data Security</h2>
+            <p>All settings data is stored only within the user's device and is not transmitted externally. When you delete the app, all data is deleted along with it.</p>
 
-        <h2>7. 어린이 개인정보 보호</h2>
-        <p>본 앱은 어떠한 연령대의 사용자로부터도 개인정보를 수집하지 않으므로, 어린이의 개인정보 보호에 대한 별도의 조치가 필요하지 않습니다. 다만, 어린이가 혼자 집에 있을 때 본 앱을 사용할 수 있도록 설계되었습니다.</p>
+            <h2>7. Children's Privacy</h2>
+            <p>This app does not collect personal information from users of any age, so no special measures for children's privacy are required. However, the app is designed to be used by children when they are home alone.</p>
 
-        <h2>8. 개인정보 처리방침 변경</h2>
-        <p>본 개인정보 처리방침은 법률이나 서비스의 변경사항을 반영하기 위해 수정될 수 있습니다. 변경사항이 있을 경우, 본 페이지를 통해 공지됩니다.</p>
+            <h2>8. Privacy Policy Changes</h2>
+            <p>This privacy policy may be modified to reflect changes in laws or services. If there are changes, they will be announced through this page.</p>
 
-        <h2>9. 문의</h2>
-        <p>개인정보 처리방침에 관한 문의사항이 있으시면 아래 연락처로 문의해 주시기 바랍니다:</p>
-        <p>이메일: <a href="mailto:support@nokk.app">support@nokk.app</a></p>
+            <h2>9. Contact</h2>
+            <p>If you have any questions about this privacy policy, please contact us at:</p>
+            <p>Email: <a href="mailto:support@nokk.app">support@nokk.app</a></p>
+        </div>
     </div>
+    
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.lang-switch button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('content-' + lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.documentElement.lang = lang;
+            localStorage.setItem('nokk-lang', lang);
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('nokk-lang');
+            if (savedLang && savedLang !== 'ko') {
+                switchLang(savedLang);
+            }
+        });
+    </script>
 </body>
 </html>

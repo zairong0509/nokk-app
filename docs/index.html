@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOKK - 안전 귀가 앱</title>
+    <title>NOKK - Home Safety Voice App | 홈 안전 음성 앱</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
@@ -39,45 +39,143 @@
         .nav a:hover {
             text-decoration: underline;
         }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .lang-switch button {
+            background: none;
+            border: 2px solid #4CAF50;
+            color: #4CAF50;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .lang-switch button:hover {
+            background: #4CAF50;
+            color: white;
+        }
+        .lang-switch button.active {
+            background: #4CAF50;
+            color: white;
+        }
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="lang-switch" style="text-align: right; margin-bottom: 10px;">
-            <a href="index.html" style="color: #4CAF50; text-decoration: none;"><strong>🇰🇷 한국어</strong></a> | 
-            <a href="index_en.html" style="color: #4CAF50; text-decoration: none;">🇺🇸 English</a>
+        <div class="lang-switch">
+            <button onclick="switchLang('ko')" id="btn-ko" class="active">🇰🇷 한국어</button>
+            <button onclick="switchLang('en')" id="btn-en">🇺🇸 English</button>
         </div>
         
-        <h1>🛡️ NOKK - 홈 안전 음성 앱</h1>
-        
-        <div class="nav">
-            <a href="privacy.html">개인정보 처리방침</a>
-            <a href="terms.html">서비스 이용약관</a>
+        <!-- 한국어 콘텐츠 -->
+        <div id="content-ko" class="lang-content active">
+            <h1>🛡️ NOKK - 홈 안전 음성 앱</h1>
+            
+            <div class="nav">
+                <a href="privacy.html">개인정보 처리방침</a>
+                <a href="terms.html">서비스 이용약관</a>
+            </div>
+            
+            <h2>집에 혼자 있을 때 당신을 지켜주는 안전 음성</h2>
+            <p>NOKK는 집에 혼자 있는 여성이나 아이들이 위험한 상황에서 남자 목소리를 재생하여 안전을 지키는 앱입니다.</p>
+            
+            <h3>주요 기능</h3>
+            <ul>
+                <li>🎤 다양한 상황별 남자 음성 (배달, 야간 방문, 위협 상황, 낯선 방문자)</li>
+                <li>🎵 3가지 톤 선택 (일반, 단호, 화난)</li>
+                <li>🌍 4개 언어 지원 (한국어, 영어, 일본어, 스페인어)</li>
+                <li>⚡ 빠른 실행 버튼</li>
+                <li>🎨 다크 모드 지원</li>
+                <li>🔒 개인정보 수집 없음</li>
+            </ul>
+            
+            <h3>사용 시나리오</h3>
+            <ul>
+                <li>📦 <strong>배달원 응대</strong>: "문 앞에 놔주세요", "고맙습니다"</li>
+                <li>🌙 <strong>야간 방문자</strong>: "너무 늦었어요", "내일 오세요", "자고 있어요"</li>
+                <li>⚠️ <strong>위협 상황</strong>: "경찰 부르고 있어요", "카메라 있어요", "나가세요"</li>
+                <li>❓ <strong>낯선 방문자</strong>: "누구세요?", "바빠요", "관심 없어요"</li>
+            </ul>
+            
+            <h3>문의</h3>
+            <p>이메일: <a href="mailto:support@nokk.app">support@nokk.app</a></p>
         </div>
         
-        <h2>집에 혼자 있을 때 당신을 지켜주는 안전 음성</h2>
-        <p>NOKK는 집에 혼자 있는 여성이나 아이들이 위험한 상황에서 남자 목소리를 재생하여 안전을 지키는 앱입니다.</p>
-        
-        <h3>주요 기능</h3>
-        <ul>
-            <li>🎤 다양한 상황별 남자 음성 (배달, 야간 방문, 위협 상황, 낯선 방문자)</li>
-            <li>🎵 3가지 톤 선택 (일반, 단호, 화난)</li>
-            <li>🌍 4개 언어 지원 (한국어, 영어, 일본어, 스페인어)</li>
-            <li>⚡ 빠른 실행 버튼</li>
-            <li>🎨 다크 모드 지원</li>
-            <li>🔒 개인정보 수집 없음</li>
-        </ul>
-        
-        <h3>사용 시나리오</h3>
-        <ul>
-            <li>📦 <strong>배달원 응대</strong>: "문 앞에 놔주세요", "고맙습니다"</li>
-            <li>🌙 <strong>야간 방문자</strong>: "너무 늦었어요", "내일 오세요", "자고 있어요"</li>
-            <li>⚠️ <strong>위협 상황</strong>: "경찰 부르고 있어요", "카메라 있어요", "나가세요"</li>
-            <li>❓ <strong>낯선 방문자</strong>: "누구세요?", "바빠요", "관심 없어요"</li>
-        </ul>
-        
-        <h3>문의</h3>
-        <p>이메일: <a href="mailto:support@nokk.app">support@nokk.app</a></p>
+        <!-- 영어 콘텐츠 -->
+        <div id="content-en" class="lang-content">
+            <h1>🛡️ NOKK - Home Safety Voice App</h1>
+            
+            <div class="nav">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+            
+            <h2>Your Safety Voice When You're Home Alone</h2>
+            <p>NOKK is a home safety voice app that protects women and children who are alone at home by playing adult male voices in dangerous situations.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+                <li>🎤 Situation-specific male voices (Delivery, Night Visitors, Threats, Unknown Visitors)</li>
+                <li>🎵 3 voice tones (Normal, Firm, Angry)</li>
+                <li>🌍 4 languages supported (Korean, English, Japanese, Spanish)</li>
+                <li>⚡ Quick action buttons</li>
+                <li>🎨 Dark mode support</li>
+                <li>🔒 No personal data collection</li>
+            </ul>
+            
+            <h3>Use Cases</h3>
+            <ul>
+                <li>📦 <strong>Delivery Response</strong>: "Leave it at the door", "Thanks, I got it"</li>
+                <li>🌙 <strong>Night Visitors</strong>: "It's too late", "Come back tomorrow", "I'm sleeping"</li>
+                <li>⚠️ <strong>Threat Situations</strong>: "I'm calling the police", "There's a camera", "Get away"</li>
+                <li>❓ <strong>Unknown Visitors</strong>: "Who is it?", "I'm busy", "Not interested"</li>
+            </ul>
+            
+            <h3>Contact</h3>
+            <p>Email: <a href="mailto:support@nokk.app">support@nokk.app</a></p>
+        </div>
     </div>
+    
+    <script>
+        function switchLang(lang) {
+            // Hide all content
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Remove active from all buttons
+            document.querySelectorAll('.lang-switch button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected content
+            document.getElementById('content-' + lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+            
+            // Save preference
+            localStorage.setItem('nokk-lang', lang);
+        }
+        
+        // Load saved language preference
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('nokk-lang');
+            if (savedLang && savedLang !== 'ko') {
+                switchLang(savedLang);
+            }
+        });
+    </script>
 </body>
 </html>

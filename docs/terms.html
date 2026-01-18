@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>서비스 이용약관 - NOKK</title>
+    <title>Terms of Service | 서비스 이용약관 - NOKK</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
@@ -51,112 +51,267 @@
             padding: 15px;
             margin: 20px 0;
         }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .lang-switch button {
+            background: none;
+            border: 2px solid #4CAF50;
+            color: #4CAF50;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .lang-switch button:hover {
+            background: #4CAF50;
+            color: white;
+        }
+        .lang-switch button.active {
+            background: #4CAF50;
+            color: white;
+        }
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="lang-switch" style="text-align: right; margin-bottom: 10px;">
-            <a href="terms.html" style="color: #4CAF50; text-decoration: none;"><strong>🇰🇷 한국어</strong></a> | 
-            <a href="terms_en.html" style="color: #4CAF50; text-decoration: none;">🇺🇸 English</a>
+        <div class="lang-switch">
+            <button onclick="switchLang('ko')" id="btn-ko" class="active">🇰🇷 한국어</button>
+            <button onclick="switchLang('en')" id="btn-en">🇺🇸 English</button>
         </div>
         
-        <a href="index.html" class="back-link">← 홈으로</a>
-        
-        <h1>서비스 이용약관</h1>
-        <p class="last-updated">최종 수정일: 2026년 1월 19일</p>
+        <!-- 한국어 콘텐츠 -->
+        <div id="content-ko" class="lang-content active">
+            <a href="index.html" class="back-link">← 홈으로</a>
+            
+            <h1>서비스 이용약관</h1>
+            <p class="last-updated">최종 수정일: 2026년 1월 19일</p>
 
-        <h2>1. 약관의 적용</h2>
-        <p>NOKK 애플리케이션("앱")을 다운로드, 설치 또는 사용함으로써 본 서비스 이용약관("약관")에 동의하는 것으로 간주됩니다. 본 약관에 동의하지 않으시는 경우, 앱을 사용하지 마십시오.</p>
+            <h2>1. 약관의 적용</h2>
+            <p>NOKK 애플리케이션("앱")을 다운로드, 설치 또는 사용함으로써 본 서비스 이용약관("약관")에 동의하는 것으로 간주됩니다. 본 약관에 동의하지 않으시는 경우, 앱을 사용하지 마십시오.</p>
 
-        <h2>2. 서비스 설명</h2>
-        <p>NOKK는 집에 혼자 있는 여성이나 아이들을 위한 홈 안전 음성 앱입니다. 앱은 다음과 같은 기능을 제공합니다:</p>
-        <ul>
-            <li>다양한 상황별 남자 음성 재생 (배달, 야간 방문, 위협 상황, 낯선 방문자)</li>
-            <li>3가지 음성 톤 선택 (일반, 단호, 화난)</li>
-            <li>다국어 지원 (한국어, 영어, 일본어, 스페인어)</li>
-            <li>빠른 실행 버튼</li>
-            <li>완전 오프라인 사용 가능</li>
-        </ul>
+            <h2>2. 서비스 설명</h2>
+            <p>NOKK는 집에 혼자 있는 여성이나 아이들을 위한 홈 안전 음성 앱입니다. 앱은 다음과 같은 기능을 제공합니다:</p>
+            <ul>
+                <li>다양한 상황별 남자 음성 재생 (배달, 야간 방문, 위협 상황, 낯선 방문자)</li>
+                <li>3가지 음성 톤 선택 (일반, 단호, 화난)</li>
+                <li>다국어 지원 (한국어, 영어, 일본어, 스페인어)</li>
+                <li>빠른 실행 버튼</li>
+                <li>완전 오프라인 사용 가능</li>
+            </ul>
 
-        <h2>3. 사용 목적</h2>
-        <p><strong>앱의 용도:</strong></p>
-        <ul>
-            <li>집에 혼자 있을 때 남자 목소리로 위협 예방</li>
-            <li>배달원, 낯선 방문자 응대 시 안전 확보</li>
-            <li>야간 방문자에게 경고 및 거부 의사 전달</li>
-            <li>위협 상황에서 심리적 안정감 제공</li>
-        </ul>
+            <h2>3. 사용 목적</h2>
+            <p><strong>앱의 용도:</strong></p>
+            <ul>
+                <li>집에 혼자 있을 때 남자 목소리로 위협 예방</li>
+                <li>배달원, 낯선 방문자 응대 시 안전 확보</li>
+                <li>야간 방문자에게 경고 및 거부 의사 전달</li>
+                <li>위협 상황에서 심리적 안정감 제공</li>
+            </ul>
 
-        <div class="important">
-            <strong>중요한 면책사항:</strong> NOKK는 보조적인 안전 도구이며, 귀하의 안전이나 보안을 보장하지 않습니다. 음성 재생만으로 물리적 위협을 제거할 수는 없습니다. 긴급 상황 발생 시, 반드시 즉시 현지 긴급 서비스(112, 119 등)에 연락하시기 바랍니다.
+            <div class="important">
+                <strong>중요한 면책사항:</strong> NOKK는 보조적인 안전 도구이며, 귀하의 안전이나 보안을 보장하지 않습니다. 음성 재생만으로 물리적 위협을 제거할 수는 없습니다. 긴급 상황 발생 시, 반드시 즉시 현지 긴급 서비스(112, 119 등)에 연락하시기 바랍니다.
+            </div>
+
+            <h2>4. 사용자의 책임</h2>
+            <p>사용자는 다음 사항에 동의합니다:</p>
+            <ul>
+                <li>합법적인 목적으로만 앱을 사용</li>
+                <li>타인을 속이거나 해를 끼치기 위해 앱을 사용하지 않음</li>
+                <li>사기 목적으로 앱을 사용하지 않음</li>
+                <li>앱 사용 시기와 방법에 대한 책임을 짐</li>
+            </ul>
+
+            <h2>5. 안전 보장 없음</h2>
+            <p>본 앱은:</p>
+            <ul>
+                <li>물리적으로 사용자를 보호할 수 없습니다 (음성만 재생함)</li>
+                <li>실제 남자가 집에 있는 것이 아닙니다</li>
+                <li>긴급 서비스에 자동으로 연락하지 않습니다</li>
+                <li>적절한 보안 조치(문단속, CCTV 등)를 대체할 수 없습니다</li>
+                <li>모든 원치 않는 상황이나 범죄를 예방할 수 없습니다</li>
+                <li>음성 재생의 효과는 상황과 침입자에 따라 다를 수 있습니다</li>
+            </ul>
+
+            <h2>6. 지적 재산권</h2>
+            <p>앱의 모든 콘텐츠는 NOKK가 소유하며 저작권 및 지적 재산권법에 의해 보호됩니다:</p>
+            <ul>
+                <li>오디오 녹음</li>
+                <li>사용자 인터페이스 디자인</li>
+                <li>그래픽 및 아이콘</li>
+                <li>소스 코드</li>
+            </ul>
+            <p>사용자는 앱 콘텐츠를 복사, 수정, 배포하거나 상업적 목적으로 사용할 수 없습니다.</p>
+
+            <h2>7. 개인정보 보호</h2>
+            <p>개인정보 보호는 우리에게 중요합니다. 자세한 내용은 <a href="privacy.html">개인정보 처리방침</a>을 참조하시기 바랍니다.</p>
+
+            <h2>8. 면책조항</h2>
+            <p>본 앱은 "있는 그대로" 제공되며, 다음을 포함한 명시적 또는 묵시적 보증 없이 제공됩니다:</p>
+            <ul>
+                <li>상품성</li>
+                <li>특정 목적에의 적합성</li>
+                <li>비침해</li>
+                <li>보안 또는 안전 보장</li>
+            </ul>
+
+            <h2>9. 책임의 제한</h2>
+            <p>법률이 허용하는 최대 범위 내에서, NOKK는 다음에 대해 책임을 지지 않습니다:</p>
+            <ul>
+                <li>간접적, 부수적, 특별 또는 결과적 손해</li>
+                <li>앱 사용으로 인한 손실 또는 손해</li>
+                <li>앱이 보안이나 안전을 제공하지 못한 경우</li>
+                <li>제3자의 행위</li>
+            </ul>
+
+            <h2>10. 약관의 변경</h2>
+            <p>우리는 언제든지 본 약관을 수정할 수 있습니다. 변경 후에도 앱을 계속 사용하시는 경우, 새로운 약관에 동의하는 것으로 간주됩니다.</p>
+
+            <h2>11. 서비스 종료</h2>
+            <p>우리는 언제든지, 어떠한 이유로든, 통지 없이 귀하의 앱 액세스를 종료하거나 중단할 권리를 보유합니다.</p>
+
+            <h2>12. 문의</h2>
+            <p>본 약관에 관한 질문이 있으시면 아래로 연락해 주시기 바랍니다:</p>
+            <p>이메일: <a href="mailto:support@nokk.app">support@nokk.app</a></p>
+
+            <h2>13. 완전한 합의</h2>
+            <p>본 약관은 앱에 관한 귀하와 NOKK 간의 완전한 합의를 구성하며, 이전의 모든 합의를 대체합니다.</p>
+
+            <hr style="margin: 40px 0;">
+            <p style="text-align: center; color: #7f8c8d;">© 2026 NOKK App. All rights reserved.</p>
         </div>
+        
+        <!-- 영어 콘텐츠 -->
+        <div id="content-en" class="lang-content">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            
+            <h1>Terms of Service</h1>
+            <p class="last-updated">Last Updated: January 19, 2026</p>
 
-        <h2>4. 사용자의 책임</h2>
-        <p>사용자는 다음 사항에 동의합니다:</p>
-        <ul>
-            <li>합법적인 목적으로만 앱을 사용</li>
-            <li>타인을 속이거나 해를 끼치기 위해 앱을 사용하지 않음</li>
-            <li>사기 목적으로 앱을 사용하지 않음</li>
-            <li>앱 사용 시기와 방법에 대한 책임을 짐</li>
-        </ul>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By downloading, installing, or using the NOKK application ("App"), you are deemed to have agreed to these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
 
-        <h2>5. 안전 보장 없음</h2>
-        <p>본 앱은:</p>
-        <ul>
-            <li>물리적으로 사용자를 보호할 수 없습니다 (음성만 재생함)</li>
-            <li>실제 남자가 집에 있는 것이 아닙니다</li>
-            <li>긴급 서비스에 자동으로 연락하지 않습니다</li>
-            <li>적절한 보안 조치(문단속, CCTV 등)를 대체할 수 없습니다</li>
-            <li>모든 원치 않는 상황이나 범죄를 예방할 수 없습니다</li>
-            <li>음성 재생의 효과는 상황과 침입자에 따라 다를 수 있습니다</li>
-        </ul>
+            <h2>2. Service Description</h2>
+            <p>NOKK is a home safety voice app for women and children who are alone at home. The App provides the following features:</p>
+            <ul>
+                <li>Situation-specific male voice playback (Delivery, Night Visitors, Threats, Unknown Visitors)</li>
+                <li>3 voice tone options (Normal, Firm, Angry)</li>
+                <li>Multi-language support (Korean, English, Japanese, Spanish)</li>
+                <li>Quick action buttons</li>
+                <li>Completely offline usage</li>
+            </ul>
 
-        <h2>6. 지적 재산권</h2>
-        <p>앱의 모든 콘텐츠는 NOKK가 소유하며 저작권 및 지적 재산권법에 의해 보호됩니다:</p>
-        <ul>
-            <li>오디오 녹음</li>
-            <li>사용자 인터페이스 디자인</li>
-            <li>그래픽 및 아이콘</li>
-            <li>소스 코드</li>
-        </ul>
-        <p>사용자는 앱 콘텐츠를 복사, 수정, 배포하거나 상업적 목적으로 사용할 수 없습니다.</p>
+            <h2>3. Intended Use</h2>
+            <p><strong>App Purpose:</strong></p>
+            <ul>
+                <li>Prevent threats by playing male voice when home alone</li>
+                <li>Secure safety when responding to delivery personnel and unknown visitors</li>
+                <li>Send warnings and refusal messages to night visitors</li>
+                <li>Provide psychological security in threatening situations</li>
+            </ul>
 
-        <h2>7. 개인정보 보호</h2>
-        <p>개인정보 보호는 우리에게 중요합니다. 자세한 내용은 <a href="privacy.html">개인정보 처리방침</a>을 참조하시기 바랍니다.</p>
+            <div class="important">
+                <strong>Important Disclaimer:</strong> NOKK is a supplementary safety tool and does not guarantee your safety or security. Voice playback alone cannot eliminate physical threats. In emergency situations, immediately contact local emergency services (911, 112, 119, etc.).
+            </div>
 
-        <h2>8. 면책조항</h2>
-        <p>본 앱은 "있는 그대로" 제공되며, 다음을 포함한 명시적 또는 묵시적 보증 없이 제공됩니다:</p>
-        <ul>
-            <li>상품성</li>
-            <li>특정 목적에의 적합성</li>
-            <li>비침해</li>
-            <li>보안 또는 안전 보장</li>
-        </ul>
+            <h2>4. User Responsibilities</h2>
+            <p>Users agree to:</p>
+            <ul>
+                <li>Use the app only for lawful purposes</li>
+                <li>Not use the app to deceive or harm others</li>
+                <li>Not use the app for fraudulent purposes</li>
+                <li>Take responsibility for when and how to use the app</li>
+            </ul>
 
-        <h2>9. 책임의 제한</h2>
-        <p>법률이 허용하는 최대 범위 내에서, NOKK는 다음에 대해 책임을 지지 않습니다:</p>
-        <ul>
-            <li>간접적, 부수적, 특별 또는 결과적 손해</li>
-            <li>앱 사용으로 인한 손실 또는 손해</li>
-            <li>앱이 보안이나 안전을 제공하지 못한 경우</li>
-            <li>제3자의 행위</li>
-        </ul>
+            <h2>5. No Safety Guarantee</h2>
+            <p>This App:</p>
+            <ul>
+                <li>Cannot physically protect users (only plays voice)</li>
+                <li>Is not an actual man in your home</li>
+                <li>Does not automatically contact emergency services</li>
+                <li>Cannot replace proper security measures (door locks, CCTV, etc.)</li>
+                <li>Cannot prevent all unwanted situations or crimes</li>
+                <li>Voice playback effectiveness may vary depending on the situation and intruder</li>
+            </ul>
 
-        <h2>10. 약관의 변경</h2>
-        <p>우리는 언제든지 본 약관을 수정할 수 있습니다. 변경 후에도 앱을 계속 사용하시는 경우, 새로운 약관에 동의하는 것으로 간주됩니다.</p>
+            <h2>6. Intellectual Property</h2>
+            <p>All content in the App is owned by NOKK and protected by copyright and intellectual property laws:</p>
+            <ul>
+                <li>Audio recordings</li>
+                <li>User interface design</li>
+                <li>Graphics and icons</li>
+                <li>Source code</li>
+            </ul>
+            <p>Users may not copy, modify, distribute, or use app content for commercial purposes.</p>
 
-        <h2>11. 서비스 종료</h2>
-        <p>우리는 언제든지, 어떠한 이유로든, 통지 없이 귀하의 앱 액세스를 종료하거나 중단할 권리를 보유합니다.</p>
+            <h2>7. Privacy</h2>
+            <p>Privacy is important to us. For details, please refer to our <a href="privacy.html">Privacy Policy</a>.</p>
 
-        <h2>12. 문의</h2>
-        <p>본 약관에 관한 질문이 있으시면 아래로 연락해 주시기 바랍니다:</p>
-        <p>이메일: <a href="mailto:support@nokk.app">support@nokk.app</a></p>
+            <h2>8. Disclaimer</h2>
+            <p>This App is provided "as is" without any express or implied warranties, including but not limited to:</p>
+            <ul>
+                <li>Merchantability</li>
+                <li>Fitness for a particular purpose</li>
+                <li>Non-infringement</li>
+                <li>Security or safety guarantee</li>
+            </ul>
 
-        <h2>13. 완전한 합의</h2>
-        <p>본 약관은 앱에 관한 귀하와 NOKK 간의 완전한 합의를 구성하며, 이전의 모든 합의를 대체합니다.</p>
+            <h2>9. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, NOKK shall not be liable for:</p>
+            <ul>
+                <li>Indirect, incidental, special, or consequential damages</li>
+                <li>Losses or damages from using the app</li>
+                <li>Cases where the app fails to provide security or safety</li>
+                <li>Actions of third parties</li>
+            </ul>
 
-        <hr style="margin: 40px 0;">
-        <p style="text-align: center; color: #7f8c8d;">© 2026 NOKK App. All rights reserved.</p>
+            <h2>10. Changes to Terms</h2>
+            <p>We may modify these Terms at any time. If you continue to use the App after changes, you are deemed to have agreed to the new Terms.</p>
+
+            <h2>11. Termination</h2>
+            <p>We reserve the right to terminate or suspend your access to the App at any time, for any reason, without notice.</p>
+
+            <h2>12. Contact</h2>
+            <p>If you have questions about these Terms, please contact us at:</p>
+            <p>Email: <a href="mailto:support@nokk.app">support@nokk.app</a></p>
+
+            <h2>13. Entire Agreement</h2>
+            <p>These Terms constitute the complete agreement between you and NOKK regarding the App and supersede all prior agreements.</p>
+
+            <hr style="margin: 40px 0;">
+            <p style="text-align: center; color: #7f8c8d;">© 2026 NOKK App. All rights reserved.</p>
+        </div>
     </div>
+    
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.lang-switch button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('content-' + lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.documentElement.lang = lang;
+            localStorage.setItem('nokk-lang', lang);
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('nokk-lang');
+            if (savedLang && savedLang !== 'ko') {
+                switchLang(savedLang);
+            }
+        });
+    </script>
 </body>
 </html>

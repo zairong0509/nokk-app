@@ -19,7 +19,7 @@ GitHub Pages는 무료로 웹사이트를 호스팅할 수 있어 완벽한 솔�
 2. 저장소 정보 입력:
    ```
    Repository name: nokk-app
-   Description: NOKK Safety App - 안전 귀가 앱
+   Description: NOKK Home Safety Voice App - 홈 안전 음성 앱
    Public (✅ 체크 - 필수!)
    Initialize with README (선택)
    ```
