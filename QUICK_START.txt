@@ -1,0 +1,93 @@
+🚀 NOKK 앱 출시 - 빠른 시작 가이드
+=====================================
+
+📂 모든 파일 위치: C:\Users\jycho\Desktop\Nokk
+
+지금 바로 실행할 명령어들:
+--------------------------
+
+1. GitHub에 푸시 (30초)
+   
+   PowerShell 또는 CMD에서:
+   
+   cd C:\Users\jycho\Desktop\Nokk
+   git push -u origin main
+
+
+2. GitHub Pages 활성화 (1분)
+   
+   브라우저에서:
+   https://github.com/zairong0509/nokk-app
+   
+   → Settings 클릭
+   → 왼쪽에서 Pages 클릭
+   → Source 설정:
+      Branch: main
+      Folder: /docs
+   → Save 클릭
+   
+   1-3분 후 이 URL 확인:
+   https://zairong0509.github.io/nokk-app/
+
+
+3. 스크린샷 생성 (30분)
+   
+   cd C:\Users\jycho\Desktop\Nokk
+   npx expo start
+   
+   'a' 키 눌러 Android 에뮬레이터 실행
+   
+   캡처할 화면:
+   - 홈 화면
+   - 톤 선택
+   - 언어 선택
+   - 설정
+   
+   저장 위치: store\screenshots\android\
+
+
+4. Feature Graphic 만들기 (1시간)
+   
+   Canva 사용: https://www.canva.com/
+   크기: 1024 x 500 px
+   
+   저장: store\graphics\feature-graphic.png
+
+
+5. 계정 생성 (동시 진행)
+   
+   Google Play: https://play.google.com/console ($25)
+   Apple: https://developer.apple.com/programs/ ($99/year)
+
+
+📋 스토어 제출 시 사용할 정보
+----------------------------
+
+홈페이지: https://zairong0509.github.io/nokk-app/
+개인정보처리방침: https://zairong0509.github.io/nokk-app/privacy.html
+서비스 약관: https://zairong0509.github.io/nokk-app/terms.html
+이메일: support@nokk.app
+
+
+📖 자세한 가이드
+---------------
+
+- 전체 단계: STEP_BY_STEP.md
+- 최종 체크리스트: store\FINAL_CHECKLIST.md
+- Google Play: store\GOOGLE_PLAY_GUIDE.md
+- Apple: store\APPLE_APPSTORE_GUIDE.md
+
+
+✅ 현재 완료 상태
+----------------
+
+✅ Android 빌드 완료 (build.aab)
+✅ 개인정보처리방침 작성
+✅ 서비스 약관 작성
+✅ 모든 가이드 문서 작성
+⏳ GitHub 푸시 필요
+⏳ 스크린샷 생성 필요
+⏳ Feature Graphic 필요
+
+
+작성일: 2026-01-19
