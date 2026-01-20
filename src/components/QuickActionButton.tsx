@@ -34,7 +34,19 @@ export const QuickActionButton: React.FC<QuickActionButtonProps> = ({
   const audioState = useAudioState();
   const colors = isDarkMode ? COLORS.dark : COLORS.light;
 
-  const isPlaying = audioState.isPlaying && audioState.currentPhraseId === action.phraseId;
+  const currentPhraseId = Array.isArray(action.phraseId) ? action.phraseId.join('+') : action.phraseId;
+  const isPlaying = audioState.isPlaying && audioState.currentPhraseId === currentPhraseId;
+  
+  // Get translated text based on phraseId(s)
+  const getTranslatedText = () => {
+    if (Array.isArray(action.phraseId)) {
+      // Combined phrases: translate each and join with " + "
+      return action.phraseId.map(id => t(`phrases.${id}`)).join(' + ');
+    } else {
+      // Single phrase
+      return t(`phrases.${action.phraseId}`);
+    }
+  };
 
   // INSTANT playback on tap - no delays
   const handlePress = useCallback(() => {
@@ -81,7 +93,7 @@ export const QuickActionButton: React.FC<QuickActionButtonProps> = ({
         />
       </View>
       <Text style={styles.text} numberOfLines={2}>
-        {t(`phrases.${action.phraseId}`, {defaultValue: action.text})}
+        {getTranslatedText()}
       </Text>
       {isPlaying && (
         <View style={styles.playingIndicator}>

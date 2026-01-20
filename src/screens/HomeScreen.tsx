@@ -41,6 +41,7 @@ const HomeScreen: React.FC = () => {
   const quickActions = useQuickActions();
   const categories = useCategories();
   const expandedCategoryId = useAppStore(state => state.expandedCategoryId);
+  const setExpandedCategory = useAppStore(state => state.setExpandedCategory);
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const colors = isDarkMode ? COLORS.dark : COLORS.light;
 
@@ -53,7 +54,7 @@ const HomeScreen: React.FC = () => {
     
     const query = searchQuery.toLowerCase();
     
-    return categories
+    const filtered = categories
       .map(category => {
         // Check if category name matches
         const categoryMatches = category.name.toLowerCase().includes(query);
@@ -72,7 +73,14 @@ const HomeScreen: React.FC = () => {
         return null;
       })
       .filter((cat): cat is Category => cat !== null);
-  }, [categories, searchQuery]);
+    
+    // Auto-expand the first category with search results
+    if (filtered.length > 0) {
+      setExpandedCategory(filtered[0].id);
+    }
+    
+    return filtered;
+  }, [categories, searchQuery, setExpandedCategory]);
 
   return (
     <SafeAreaView style={[styles.container, {backgroundColor: colors.background}]}>
@@ -114,8 +122,8 @@ const HomeScreen: React.FC = () => {
               <TouchableOpacity
                 onPress={() => navigation.navigate('CustomizeQuickActions')}
                 style={styles.editButton}>
-                <Icon name="pencil" size={18} color={COLORS.primary} />
-                <Text style={[styles.editText, {color: COLORS.primary}]}>
+                <Icon name="pencil" size={18} color={isDarkMode ? COLORS.white : COLORS.primary} />
+                <Text style={[styles.editText, {color: isDarkMode ? COLORS.white : COLORS.primary}]}>
                   {t('common.edit')}
                 </Text>
               </TouchableOpacity>

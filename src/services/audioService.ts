@@ -6,7 +6,7 @@
 
 import { Audio } from 'expo-av';
 import {useAppStore} from '../store/appStore';
-import {VoiceTone, Language} from '../types';
+import {VoiceType, Language} from '../types';
 import {AUDIO_FILES} from './audioFiles';
 
 // Enable playback in silence mode (iOS)
@@ -22,15 +22,15 @@ const audioCache: Map<string, Audio.Sound> = new Map();
 // Current playing sound reference
 let currentSound: Audio.Sound | null = null;
 
-// Audio file mapping based on language and tone
+// Audio file mapping based on language and voice type
 const getAudioFileName = (
   baseFile: string,
   language: Language,
-  tone: VoiceTone,
+  voiceType: VoiceType,
 ): string => {
-  // Format: {baseFile}_{language}_{tone}.mp3
-  // Example: unknown_who_en_normal.mp3
-  return `${baseFile}_${language}_${tone}.mp3`;
+  // Format: {baseFile}_{language}_{voiceType}.mp3
+  // Example: unknown_1_en_young.mp3
+  return `${baseFile}_${language}_${voiceType}.mp3`;
 };
 
 /**
@@ -40,16 +40,16 @@ export const initializeAudio = async (): Promise<void> => {
   try {
     // Preload default quick action sounds for instant playback
     const defaultSounds = [
-      'unknown_who',
-      'delivery_leave_door',
-      'threat_calling_police',
+      'unknown_1',
+      'delivery_1',
+      'threat_1',
     ];
 
     const language = useAppStore.getState().user.preferences.language;
-    const tone = useAppStore.getState().user.preferences.voiceTone;
+    const voiceType = useAppStore.getState().user.preferences.voiceType;
 
     await Promise.all(
-      defaultSounds.map(sound => preloadAudio(sound, language, tone)),
+      defaultSounds.map(sound => preloadAudio(sound, language, voiceType)),
     );
 
     console.log('Audio system initialized');
@@ -64,7 +64,7 @@ export const initializeAudio = async (): Promise<void> => {
 export const preloadAudio = async (
   baseFile: string,
   language: Language,
-  tone: VoiceTone,
+  tone: VoiceType,
 ): Promise<void> => {
   try {
     const cacheKey = `${baseFile}_${language}_${tone}`;
@@ -98,14 +98,14 @@ export const preloadAudio = async (
 /**
  * Play audio INSTANTLY - This is the core function
  * NO DELAYS, NO CONFIRMATION, NO LOADING
+ * Supports both single audio file and array of audio files (combined phrases)
  */
 export const playAudio = async (
-  baseFile: string,
-  phraseId: string,
+  baseFile: string | string[],
+  phraseId: string | string[],
 ): Promise<void> => {
   const store = useAppStore.getState();
-  const {language, voiceTone} = store.user.preferences;
-  const cacheKey = `${baseFile}_${language}_${voiceTone}`;
+  const {language, voiceType} = store.user.preferences;
 
   // Stop any currently playing audio immediately
   await stopAudio();
@@ -113,44 +113,18 @@ export const playAudio = async (
   // Update state to show playing
   store.setAudioState({
     isPlaying: true,
-    currentPhraseId: phraseId,
+    currentPhraseId: Array.isArray(phraseId) ? phraseId.join('+') : phraseId,
     isLoading: false,
     error: null,
   });
 
   try {
-    let sound = audioCache.get(cacheKey);
-
-    // If not cached, load it (this should be rare with preloading)
-    if (!sound) {
-      sound = await loadSound(cacheKey);
-      if (sound) {
-        audioCache.set(cacheKey, sound);
-      }
-    }
-
-    if (sound) {
-      currentSound = sound;
-      
-      // Reset to beginning if already played
-      await sound.setPositionAsync(0);
-      
-      // Set volume to maximum for safety situations
-      await sound.setVolumeAsync(1.0);
-      
-      // Play immediately
-      await sound.playAsync();
-
-      // Set playback status callback
-      sound.setOnPlaybackStatusUpdate((status) => {
-        if (status.isLoaded && status.didJustFinish) {
-          console.log('Audio playback finished');
-          store.resetAudioState();
-          currentSound = null;
-        }
-      });
+    // Handle combined phrases (array of audio files)
+    if (Array.isArray(baseFile)) {
+      await playMultipleAudios(baseFile, language, voiceType);
     } else {
-      throw new Error('Sound not available');
+      // Single audio file
+      await playSingleAudio(baseFile, language, voiceType);
     }
   } catch (error) {
     console.error('Playback error:', error);
@@ -161,6 +135,116 @@ export const playAudio = async (
       error: 'Failed to play audio',
     });
   }
+};
+
+/**
+ * Play a single audio file
+ */
+const playSingleAudio = async (
+  baseFile: string,
+  language: Language,
+  voiceType: VoiceType,
+): Promise<void> => {
+  const store = useAppStore.getState();
+  const cacheKey = `${baseFile}_${language}_${voiceType}`;
+
+  let sound = audioCache.get(cacheKey);
+
+  // If not cached, load it (this should be rare with preloading)
+  if (!sound) {
+    sound = await loadSound(cacheKey);
+    if (sound) {
+      audioCache.set(cacheKey, sound);
+    }
+  }
+
+  if (sound) {
+    currentSound = sound;
+    
+    // Reset to beginning if already played
+    await sound.setPositionAsync(0);
+    
+    // Set volume to maximum for safety situations
+    await sound.setVolumeAsync(1.0);
+    
+    // Play immediately
+    await sound.playAsync();
+
+    // Set playback status callback
+    sound.setOnPlaybackStatusUpdate((status) => {
+      if (status.isLoaded && status.didJustFinish) {
+        console.log('Audio playback finished');
+        store.resetAudioState();
+        currentSound = null;
+      }
+    });
+  } else {
+    throw new Error('Sound not available');
+  }
+};
+
+/**
+ * Play multiple audio files sequentially (for combined phrases)
+ */
+const playMultipleAudios = async (
+  baseFiles: string[],
+  language: Language,
+  voiceType: VoiceType,
+): Promise<void> => {
+  const store = useAppStore.getState();
+  
+  for (let i = 0; i < baseFiles.length; i++) {
+    const baseFile = baseFiles[i];
+    const cacheKey = `${baseFile}_${language}_${voiceType}`;
+    
+    let sound = audioCache.get(cacheKey);
+    
+    // If not cached, load it
+    if (!sound) {
+      sound = await loadSound(cacheKey);
+      if (sound) {
+        audioCache.set(cacheKey, sound);
+      }
+    }
+    
+    if (sound) {
+      currentSound = sound;
+      
+      // Reset to beginning
+      await sound.setPositionAsync(0);
+      
+      // Set volume to maximum
+      await sound.setVolumeAsync(1.0);
+      
+      // Play the audio
+      await sound.playAsync();
+      
+      // Wait for this audio to finish before playing next
+      await new Promise<void>((resolve) => {
+        sound!.setOnPlaybackStatusUpdate((status) => {
+          if (status.isLoaded && status.didJustFinish) {
+            sound!.setOnPlaybackStatusUpdate(null);
+            resolve();
+          }
+        });
+      });
+      
+      // Reset position for next play (keep in cache)
+      await sound.setPositionAsync(0);
+      
+      // Small pause between phrases (300ms)
+      if (i < baseFiles.length - 1) {
+        await new Promise(resolve => setTimeout(resolve, 300));
+      }
+    } else {
+      console.warn(`Audio file not found: ${cacheKey}`);
+    }
+  }
+  
+  // All audios finished playing
+  console.log('Combined audio playback finished');
+  store.resetAudioState();
+  currentSound = null;
 };
 
 /**
@@ -192,7 +276,9 @@ export const stopAudio = async (): Promise<void> => {
   if (currentSound) {
     try {
       await currentSound.stopAsync();
-      await currentSound.unloadAsync();
+      // Don't unload - keep in cache for reuse
+      // Just reset position for next play
+      await currentSound.setPositionAsync(0);
     } catch (error) {
       console.warn('Error stopping audio:', error);
     }
@@ -207,21 +293,32 @@ export const stopAudio = async (): Promise<void> => {
  */
 export const preloadAllAudioForSettings = async (
   language: Language,
-  tone: VoiceTone,
+  tone: VoiceType,
 ): Promise<void> => {
   // Clear old cache
-  audioCache.forEach(sound => sound.release());
+  for (const sound of audioCache.values()) {
+    try {
+      await sound.unloadAsync();
+    } catch (error) {
+      console.warn('Error unloading sound:', error);
+    }
+  }
   audioCache.clear();
 
-  // Preload common phrases
+  // Preload common phrases (matching actual audio files)
   const commonPhrases = [
-    'unknown_who',
-    'delivery_leave_door',
-    'threat_calling_police',
-    'unknown_not_expecting',
-    'unknown_what_want',
-    'threat_get_away',
-    'delivery_put_down',
+    'unknown_1',
+    'unknown_2',
+    'unknown_3',
+    'delivery_1',
+    'delivery_2',
+    'threat_1',
+    'threat_2',
+    'threat_3',
+    'general_1',
+    'general_2',
+    'general_3',
+    'general_4',
   ];
 
   await Promise.all(
@@ -257,9 +354,9 @@ export const isAudioPlaying = (phraseId: string): boolean => {
 export const getAudioDuration = async (
   baseFile: string,
   language: Language,
-  tone: VoiceTone,
+  voiceType: VoiceType,
 ): Promise<number> => {
-  const cacheKey = `${baseFile}_${language}_${tone}`;
+  const cacheKey = `${baseFile}_${language}_${voiceType}`;
   const sound = audioCache.get(cacheKey);
 
   if (sound) {

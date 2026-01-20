@@ -1,5 +1,6 @@
 /**
- * Voice Tone Select Screen (Premium Only)
+ * Voice Type Select Screen (Premium Only)
+ * Select male voice age group: Young (20s), Middle (30s), Mature (40s+)
  */
 
 import React from 'react';
@@ -10,46 +11,46 @@ import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import {useTranslation} from 'react-i18next';
 
 import {COLORS, SPACING, FONTS, BORDER_RADIUS} from '../constants/theme';
-import {useIsDarkMode, useAppStore, useVoiceTone, useLanguage} from '../store/appStore';
+import {useIsDarkMode, useAppStore, useVoiceType, useLanguage} from '../store/appStore';
 import {preloadAllAudioForSettings} from '../services/audioService';
-import {VoiceTone} from '../types';
+import {VoiceType} from '../types';
 
-const VOICE_TONES: {id: VoiceTone; icon: string}[] = [
-  {id: 'normal', icon: 'account-voice'},
-  {id: 'firm', icon: 'account-tie-voice'},
-  {id: 'angry', icon: 'account-alert'},
+const VOICE_TYPES: {id: VoiceType; icon: string}[] = [
+  {id: 'young', icon: 'account'},
+  {id: 'middle', icon: 'account-tie'},
+  {id: 'mature', icon: 'account-cowboy-hat'},
 ];
 
 const ToneSelectScreen: React.FC = () => {
   const {t} = useTranslation();
   const isDarkMode = useIsDarkMode();
-  const currentTone = useVoiceTone();
+  const currentVoiceType = useVoiceType();
   const language = useLanguage();
-  const setVoiceTone = useAppStore(state => state.setVoiceTone);
+  const setVoiceType = useAppStore(state => state.setVoiceType);
   const navigation = useNavigation();
   const colors = isDarkMode ? COLORS.dark : COLORS.light;
 
-  const handleSelectTone = async (tone: VoiceTone) => {
-    setVoiceTone(tone);
-    // Preload audio for new tone
-    preloadAllAudioForSettings(language, tone);
+  const handleSelectVoiceType = async (voiceType: VoiceType) => {
+    setVoiceType(voiceType);
+    // Preload audio for new voice type
+    preloadAllAudioForSettings(language, voiceType);
     navigation.goBack();
   };
 
-  const renderItem = ({item}: {item: typeof VOICE_TONES[0]}) => (
+  const renderItem = ({item}: {item: typeof VOICE_TYPES[0]}) => (
     <TouchableOpacity
       style={[styles.item, {backgroundColor: colors.card}]}
-      onPress={() => handleSelectTone(item.id)}
+      onPress={() => handleSelectVoiceType(item.id)}
       activeOpacity={0.7}>
       <View style={[styles.iconContainer, {backgroundColor: COLORS.primary + '20'}]}>
         <Icon name={item.icon} size={24} color={COLORS.primary} />
       </View>
       <View style={styles.textContainer}>
         <Text style={[styles.name, {color: colors.text}]}>
-          {t(`voiceTone.${item.id}`)}
+          {t(`voiceType.${item.id}`)}
         </Text>
       </View>
-      {currentTone === item.id && (
+      {currentVoiceType === item.id && (
         <Icon name="check" size={24} color={COLORS.primary} />
       )}
     </TouchableOpacity>
@@ -58,10 +59,10 @@ const ToneSelectScreen: React.FC = () => {
   return (
     <SafeAreaView style={[styles.container, {backgroundColor: colors.background}]} edges={['bottom']}>
       <Text style={[styles.description, {color: colors.textSecondary}]}>
-        {t('voiceTone.description')}
+        {t('voiceType.description')}
       </Text>
       <FlatList
-        data={VOICE_TONES}
+        data={VOICE_TYPES}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         contentContainerStyle={styles.list}

@@ -19,7 +19,7 @@ const LanguageSelectScreen: React.FC = () => {
   const isDarkMode = useIsDarkMode();
   const currentLanguage = useLanguage();
   const setLanguage = useAppStore(state => state.setLanguage);
-  const voiceTone = useAppStore(state => state.user.preferences.voiceTone);
+  const voiceType = useAppStore(state => state.user.preferences.voiceType);
   const navigation = useNavigation();
   const colors = isDarkMode ? COLORS.dark : COLORS.light;
 
@@ -29,7 +29,7 @@ const LanguageSelectScreen: React.FC = () => {
     // Update store
     setLanguage(langCode as Language);
     // Preload audio for new language
-    preloadAllAudioForSettings(langCode as Language, voiceTone);
+    preloadAllAudioForSettings(langCode as Language, voiceType);
     // Go back
     navigation.goBack();
   };

@@ -27,7 +27,7 @@ import {
   useIsPremium,
   useUser,
   useLanguage,
-  useVoiceTone,
+  useVoiceType,
 } from '../store/appStore';
 import {RootStackParamList} from '../types';
 import {SUPPORTED_LANGUAGES} from '../i18n';
@@ -38,7 +38,7 @@ const SettingsScreen: React.FC = () => {
   const isPremium = useIsPremium();
   const user = useUser();
   const language = useLanguage();
-  const voiceTone = useVoiceTone();
+  const voiceType = useVoiceType();
   const toggleDarkMode = useAppStore(state => state.toggleDarkMode);
   const restorePurchase = useAppStore(state => state.restorePurchase);
   const logout = useAppStore(state => state.logout);
@@ -51,9 +51,9 @@ const SettingsScreen: React.FC = () => {
     return lang?.nativeName || 'English';
   };
 
-  // Get voice tone display name
-  const getVoiceToneName = () => {
-    return t(`voiceTone.${voiceTone}`);
+  // Get voice type display name
+  const getVoiceTypeName = () => {
+    return t(`voiceType.${voiceType}`);
   };
 
   // Handle restore purchase
@@ -112,7 +112,7 @@ const SettingsScreen: React.FC = () => {
       disabled={disabled || isSwitch}
       activeOpacity={0.7}>
       <View style={[styles.iconContainer, {backgroundColor: COLORS.primary + '20'}]}>
-        <Icon name={icon} size={22} color={isDarkMode ? COLORS.white : COLORS.primary} />
+        <Icon name={icon} size={22} color={COLORS.white} />
       </View>
       <View style={styles.settingsContent}>
         <View style={styles.settingsTitleRow}>
@@ -194,8 +194,8 @@ const SettingsScreen: React.FC = () => {
             <View style={[styles.divider, {backgroundColor: colors.divider}]} />
             <SettingsItem
               icon="account-voice"
-              title={t('settings.voiceTone')}
-              value={getVoiceToneName()}
+              title={t('settings.voiceType')}
+              value={getVoiceTypeName()}
               onPress={() => {
                 if (isPremium) {
                   navigation.navigate('ToneSelect');

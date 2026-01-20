@@ -1,21 +1,32 @@
 /**
- * Ad Banner Component - TEMPORARILY DISABLED
- * TODO: Re-enable with Development Build
+ * Ad Banner Component
  * Fixed banner ad at bottom for free users
  * Hidden during audio playback and for premium users
  */
 
-import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, StyleSheet, Platform} from 'react-native';
+import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 
-import {COLORS, SPACING, FONTS} from '../constants/theme';
+import {COLORS} from '../constants/theme';
 import {useIsPremium, useAudioState, useIsDarkMode} from '../store/appStore';
+
+// Production Ad Unit ID for Android
+const ANDROID_AD_UNIT_ID = 'ca-app-pub-5021298398801669/3372406747';
+
+// Use test ads in development, real ads in production
+const AD_UNIT_ID = __DEV__ 
+  ? TestIds.BANNER 
+  : Platform.OS === 'android' 
+    ? ANDROID_AD_UNIT_ID 
+    : TestIds.BANNER; // iOS will be added later
 
 export const AdBanner: React.FC = () => {
   const isPremium = useIsPremium();
   const audioState = useAudioState();
   const isDarkMode = useIsDarkMode();
   const colors = isDarkMode ? COLORS.dark : COLORS.light;
+  const [adLoaded, setAdLoaded] = useState(false);
 
   // Don't show ads for premium users
   if (isPremium) {
@@ -27,12 +38,19 @@ export const AdBanner: React.FC = () => {
     return null;
   }
 
-  // Placeholder for development
   return (
-    <View style={[styles.container, {backgroundColor: colors.surface, borderTopWidth: 1, borderTopColor: colors.border}]}>
-      <Text style={[styles.placeholderText, {color: colors.textSecondary}]}>
-        Ad Space (Development Mode)
-      </Text>
+    <View style={[styles.container, {backgroundColor: colors.surface, borderTopColor: colors.border}]}>
+      <BannerAd
+        unitId={AD_UNIT_ID}
+        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+        requestOptions={{
+          requestNonPersonalizedAdsOnly: true,
+        }}
+        onAdLoaded={() => setAdLoaded(true)}
+        onAdFailedToLoad={(error) => {
+          console.log('Ad failed to load:', error);
+        }}
+      />
     </View>
   );
 };
@@ -45,12 +63,7 @@ const styles = StyleSheet.create({
     right: 0,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: SPACING.md,
-    height: 60,
-  },
-  placeholderText: {
-    fontSize: FONTS.sizes.xs,
-    fontWeight: '500',
+    borderTopWidth: 1,
   },
 });
 

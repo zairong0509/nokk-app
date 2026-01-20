@@ -5,8 +5,8 @@
 // Supported languages
 export type Language = 'en' | 'ko' | 'ja' | 'es';
 
-// Voice tone options
-export type VoiceTone = 'normal' | 'firm' | 'angry';
+// Voice type options (male voice age groups)
+export type VoiceType = 'young' | 'middle' | 'mature';  // 20s, 30s, 40s+
 
 // Category types
 export type CategoryType = 'delivery' | 'unknown' | 'threat' | 'night' | 'general';
@@ -33,12 +33,13 @@ export interface Category {
 // Quick Action button interface
 export interface QuickAction {
   id: string;
-  phraseId: string;
+  phraseId: string | string[]; // Single phrase ID or array of phrase IDs for combined actions
   text: string;
-  audioFile: string;
+  audioFile: string | string[]; // Single audio file or array for combined actions
   order: number;
   isDefault: boolean;
   isCustomizable: boolean; // Premium users can customize
+  isCombined?: boolean; // True if this action combines multiple phrases (Premium feature)
 }
 
 // User subscription status
@@ -47,7 +48,7 @@ export type SubscriptionStatus = 'free' | 'premium';
 // User preferences
 export interface UserPreferences {
   language: Language;
-  voiceTone: VoiceTone;
+  voiceType: VoiceType;
   isDarkMode: boolean;
   notificationsEnabled: boolean;
 }
@@ -125,7 +126,7 @@ export type StoreAction =
   | {type: 'SET_LOADING'; payload: boolean}
   | {type: 'SET_USER'; payload: Partial<User>}
   | {type: 'SET_LANGUAGE'; payload: Language}
-  | {type: 'SET_VOICE_TONE'; payload: VoiceTone}
+  | {type: 'SET_VOICE_TYPE'; payload: VoiceType}
   | {type: 'SET_SUBSCRIPTION'; payload: SubscriptionStatus}
   | {type: 'TOGGLE_DARK_MODE'}
   | {type: 'SET_EXPANDED_CATEGORY'; payload: CategoryType | null}

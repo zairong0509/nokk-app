@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   User,
   Language,
-  VoiceTone,
+  VoiceType,
   SubscriptionStatus,
   QuickAction,
   CategoryType,
@@ -34,7 +34,7 @@ interface AppStore {
   setLoading: (loading: boolean) => void;
   setUser: (user: Partial<User>) => void;
   setLanguage: (language: Language) => void;
-  setVoiceTone: (tone: VoiceTone) => void;
+  setVoiceType: (type: VoiceType) => void;
   setSubscription: (status: SubscriptionStatus) => void;
   toggleDarkMode: () => void;
   setExpandedCategory: (categoryId: CategoryType | null) => void;
@@ -51,7 +51,7 @@ const DEFAULT_USER: User = {
   subscriptionStatus: 'free',
   preferences: {
     language: 'en',
-    voiceTone: 'normal',
+    voiceType: 'middle',
     isDarkMode: true,
     notificationsEnabled: true,
   },
@@ -83,7 +83,24 @@ export const useAppStore = create<AppStore>()(
         try {
           set({isLoading: true});
           // Load persisted data is handled by zustand persist
-          // Any additional initialization logic here
+          // Reset quickActions to default to fix any corrupted data
+          // This ensures audio files match the actual files
+          set({quickActions: DEFAULT_QUICK_ACTIONS});
+          
+          // Ensure voiceType has a valid default if undefined
+          const currentState = get();
+          if (!currentState.user.preferences.voiceType) {
+            set(state => ({
+              user: {
+                ...state.user,
+                preferences: {
+                  ...state.user.preferences,
+                  voiceType: 'middle',
+                },
+              },
+            }));
+          }
+          
           await new Promise(resolve => setTimeout(resolve, 500)); // Simulate init
           set({isInitialized: true, isLoading: false});
         } catch (error) {
@@ -111,13 +128,13 @@ export const useAppStore = create<AppStore>()(
         })),
 
       // Set voice tone (Premium only)
-      setVoiceTone: (tone: VoiceTone) => {
+      setVoiceType: (type: VoiceType) => {
         const {user} = get();
         if (user.subscriptionStatus === 'premium') {
           set(state => ({
             user: {
               ...state.user,
-              preferences: {...state.user.preferences, voiceTone: tone},
+              preferences: {...state.user.preferences, voiceType: type},
             },
           }));
         }
@@ -205,8 +222,8 @@ export const useIsPremium = () =>
   useAppStore(state => state.user.subscriptionStatus === 'premium');
 export const useLanguage = () =>
   useAppStore(state => state.user.preferences.language);
-export const useVoiceTone = () =>
-  useAppStore(state => state.user.preferences.voiceTone);
+export const useVoiceType = () =>
+  useAppStore(state => state.user.preferences.voiceType);
 export const useCategories = () => useAppStore(state => state.categories);
 export const useQuickActions = () => useAppStore(state => state.quickActions);
 export const useAudioState = () => useAppStore(state => state.audioState);
