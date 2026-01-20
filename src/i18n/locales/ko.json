@@ -71,9 +71,9 @@
     "login": "로그인"
   },
   "voiceType": {
-    "young": "젊은 남자 (20대)",
-    "middle": "성인 남자 (30대)",
-    "mature": "중년 남자 (40대+)",
+    "young": "젊은 톤 (20대)",
+    "middle": "성인 톤 (30대)",
+    "mature": "중년 톤 (40대+)",
     "description": "목소리 연령대 선택"
   },
   "premium": {

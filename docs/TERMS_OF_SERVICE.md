@@ -8,7 +8,7 @@ By downloading, installing, or using the NOKK application ("App"), you agree to 
 
 ## 2. Description of Service
 
-NOKK is a personal safety voice application that plays pre-recorded male voice messages when activated. The App is designed to create the impression that an adult male is present in the home.
+NOKK is a personal safety voice application that plays pre-recorded protective voice messages when activated. The App is designed to create the impression that someone else is present in the home.
 
 ## 3. Intended Use
 

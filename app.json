@@ -2,7 +2,7 @@
   "expo": {
     "name": "NOKK",
     "slug": "nokk-safety-app",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -26,7 +26,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#121212"
       },
-      "package": "com.nokk.app"
+      "package": "com.nokk.app",
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"

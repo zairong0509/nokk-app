@@ -21,6 +21,7 @@ interface AppStore {
   // State
   isInitialized: boolean;
   isLoading: boolean;
+  hasSeenOnboarding: boolean;
   user: User;
   categories: Category[];
   quickActions: QuickAction[];
@@ -31,6 +32,7 @@ interface AppStore {
 
   // Actions
   initializeApp: () => Promise<void>;
+  completeOnboarding: () => void;
   setLoading: (loading: boolean) => void;
   setUser: (user: Partial<User>) => void;
   setLanguage: (language: Language) => void;
@@ -70,6 +72,7 @@ export const useAppStore = create<AppStore>()(
       // Initial state
       isInitialized: false,
       isLoading: true,
+      hasSeenOnboarding: false,
       user: DEFAULT_USER,
       categories: DEFAULT_CATEGORIES,
       quickActions: DEFAULT_QUICK_ACTIONS,
@@ -108,6 +111,9 @@ export const useAppStore = create<AppStore>()(
           set({isLoading: false});
         }
       },
+
+      // Complete onboarding
+      completeOnboarding: () => set({ hasSeenOnboarding: true }),
 
       // Set loading state
       setLoading: (loading: boolean) => set({isLoading: loading}),
@@ -211,6 +217,7 @@ export const useAppStore = create<AppStore>()(
         user: state.user,
         quickActions: state.quickActions,
         isDarkMode: state.isDarkMode,
+        hasSeenOnboarding: state.hasSeenOnboarding,
       }),
     },
   ),
@@ -228,3 +235,4 @@ export const useCategories = () => useAppStore(state => state.categories);
 export const useQuickActions = () => useAppStore(state => state.quickActions);
 export const useAudioState = () => useAppStore(state => state.audioState);
 export const useIsDarkMode = () => useAppStore(state => state.isDarkMode);
+export const useHasSeenOnboarding = () => useAppStore(state => state.hasSeenOnboarding);

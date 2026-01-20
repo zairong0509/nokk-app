@@ -5,7 +5,7 @@
 // Supported languages
 export type Language = 'en' | 'ko' | 'ja' | 'es';
 
-// Voice type options (male voice age groups)
+// Voice type options (voice age groups)
 export type VoiceType = 'young' | 'middle' | 'mature';  // 20s, 30s, 40s+
 
 // Category types

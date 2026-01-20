@@ -1,6 +1,6 @@
 /**
  * Voice Type Select Screen (Premium Only)
- * Select male voice age group: Young (20s), Middle (30s), Mature (40s+)
+ * Select voice age group: Young (20s), Middle (30s), Mature (40s+)
  */
 
 import React from 'react';
